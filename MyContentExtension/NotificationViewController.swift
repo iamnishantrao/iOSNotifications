@@ -37,6 +37,21 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         }
         
     }
+    
+    // Function for custom notification actions.
+    func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+        
+        // Dismiss notification using custom notification actions.
+        if response.actionIdentifier == "userAction" {
+            
+            completion(.dismissAndForwardAction)
+            
+        } else if response.actionIdentifier == "dismiss" {
+            
+            completion(.dismissAndForwardAction)
+            
+        }
+    }
 
 }
 

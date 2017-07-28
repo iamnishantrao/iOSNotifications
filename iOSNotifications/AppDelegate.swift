@@ -52,7 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Function for configuring the NotificationContentExtension.
     private func configureUserNotification() {
         
-        let category = UNNotificationCategory(identifier: "myNotificationCategory", actions: [], intentIdentifiers: [], options: [])
+        let userAction = UNNotificationAction(identifier: "userAction", title: "User Action", options: [])
+        let dismissAction = UNNotificationAction(identifier: "dismiss", title: "Dismiss", options: [])
+        // Add above actions to the category below.
+        
+        let category = UNNotificationCategory(identifier: "myNotificationCategory", actions: [userAction, dismissAction], intentIdentifiers: [], options: [])
+        
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 }
@@ -63,6 +68,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         completionHandler(.alert)
+    }
+    
+    // Function to handle custom notifications actions.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("Response received for: \(response.actionIdentifier)")
+        completionHandler()
     }
 }
 

@@ -11,6 +11,8 @@ import UserNotifications
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var sendNotificationButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
 
     // Function to send notification when button is pressed.
     @IBAction func notificationButtonPressed(_ sender: Any) {
-        
+                
         scheduleNotification(inSeconds: 5, completion: { success in
             
             if success {

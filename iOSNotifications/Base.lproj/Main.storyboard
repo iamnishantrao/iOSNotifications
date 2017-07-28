@@ -58,6 +58,9 @@
                             <constraint firstItem="Q5y-w0-86I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="v6h-wj-CBF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sendNotificationButton" destination="lNh-78-4rP" id="bEx-go-FeU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
