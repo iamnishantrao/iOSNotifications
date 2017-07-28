@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         
         // For NotificationContentExtension Only.
         // UNCOMMENT THE LINE BELOW CUSTOM NOTIFICATION.
-//        notify.categoryIdentifier = "myNotificationCategory"
+        notify.categoryIdentifier = "myNotificationCategory"
         
         notify.title = "New Notification"
         notify.subtitle = "iOS 10 Notifications Example"
